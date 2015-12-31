@@ -11,7 +11,7 @@ config.devtool = 'cheap-module-eval-source-map';
 
 config.entry = [
     `webpack-hot-middleware/client?path=http://localhost:${config.port}/__webpack_hmr`,
-    './app/index'
+    './src/index'
 ];
 
 config.output.publicPath = `http://localhost:${config.port}/`;

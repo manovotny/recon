@@ -11,6 +11,7 @@ let menu;
 let template;
 let mainWindow = null;
 
+// TODO: Come back and clean this all up.
 
 crashReporter.start();
 
