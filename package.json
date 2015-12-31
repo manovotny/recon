@@ -4,7 +4,7 @@
   "version": "0.7.1",
   "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
   "scripts": {
-    "test": "better-npm-run test",
+    "test": "mocha",
     "test-watch": "npm test -- --watch",
     "test-e2e": "better-npm-run test-e2e",
     "lint": "eslint app test *.js",
@@ -40,12 +40,6 @@
       "command": "webpack --config webpack.config.production.js --progress --profile --colors",
       "env": {
         "NODE_ENV": "production"
-      }
-    },
-    "test": {
-      "command": "mocha --compilers js:babel-core/register --recursive --require ./test/setup.js test/**/*.spec.js",
-      "env": {
-        "NODE_ENV": "test"
       }
     },
     "test-e2e": {

@@ -1,9 +1,7 @@
-/* eslint func-names: 0 */
-import { expect } from 'chai';
+import assert from 'assert';
 
-
-describe('description', () => {
-  it('description', () => {
-    expect(1 + 2).to.equal(3);
-  });
+describe('example test', () => {
+    it('should pass', () => {
+        assert.equal(1, 1);
+    });
 });
