@@ -1,9 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class App extends Component {
+import { remote } from 'electron';
+
+module.exports = React.createClass({
   render() {
+    var userData = remote.app.getPath('userData');
+
     return (
-      <h1>React is hot!!!</h1>
+        <div>
+          <h1>Hello React!@@</h1>
+          <h2>User Data: {userData}</h2>
+        </div>
     );
   }
-}
+});
