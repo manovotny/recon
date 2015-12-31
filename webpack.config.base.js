@@ -13,5 +13,6 @@ module.exports = {
         filename: 'bundle.js',
         libraryTarget: 'commonjs2'
     },
+    port: 3000,
     plugins: []
 };

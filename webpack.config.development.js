@@ -10,11 +10,11 @@ config.debug = true;
 config.devtool = 'cheap-module-eval-source-map';
 
 config.entry = [
-    'webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr',
+    `webpack-hot-middleware/client?path=http://localhost:${config.port}/__webpack_hmr`,
     './app/index'
 ];
 
-config.output.publicPath = 'http://localhost:3000/dist/';
+config.output.publicPath = `http://localhost:${config.port}/dist/`;
 
 config.plugins.push(
     new webpack.DefinePlugin({
