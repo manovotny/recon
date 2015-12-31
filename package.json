@@ -9,7 +9,7 @@
     "test-watch": "npm test -- --watch",
     "test-e2e": "better-npm-run test-e2e",
     "lint": "eslint app test *.js",
-    "hot-server": "node server.js",
+    "hot-server": "node webpack.server.js",
     "build": "better-npm-run build",
     "start": "better-npm-run start",
     "start-hot": "better-npm-run start-hot",
