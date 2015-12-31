@@ -11,7 +11,7 @@ config.devtool = 'source-map';
 
 config.entry = './app/index';
 
-config.output.publicPath = '/dist/';
+config.output.publicPath = '/';
 
 config.plugins.push(
     new webpack.DefinePlugin({

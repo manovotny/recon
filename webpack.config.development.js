@@ -14,7 +14,7 @@ config.entry = [
     './app/index'
 ];
 
-config.output.publicPath = `http://localhost:${config.port}/dist/`;
+config.output.publicPath = `http://localhost:${config.port}/`;
 
 config.plugins.push(
     new webpack.DefinePlugin({
