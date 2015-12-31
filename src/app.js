@@ -8,7 +8,7 @@ module.exports = React.createClass({
 
     return (
         <div>
-          <h1>Hello React!@@</h1>
+          <h1>Hello React!</h1>
           <h2>User Data: {userData}</h2>
         </div>
     );
