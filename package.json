@@ -60,7 +60,13 @@
     "esnext": true,
     "space": 4,
     "rules": {
-      "quote-props": [2, "as-needed"]
+      "quote-props": [
+        2,
+        "as-needed"
+      ]
     }
+  },
+  "dependencies": {
+    "electron-window-state": "^2.0.0"
   }
 }
