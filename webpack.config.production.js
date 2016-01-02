@@ -13,9 +13,9 @@ config.output.publicPath = '/';
 
 config.plugins.push(
     new webpack.DefinePlugin({
-        '__DEV__': false,
+        __DEV__: false,
         'process.env': {
-            'NODE_ENV': JSON.stringify('production')
+            NODE_ENV: JSON.stringify('production')
         }
     }),
     new webpack.optimize.OccurenceOrderPlugin()

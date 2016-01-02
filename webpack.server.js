@@ -21,7 +21,7 @@ app.get('*', (request, response) => {
     response.sendFile(path.join(__dirname, 'app', 'index.development.html'));
 });
 
-app.listen(config.port, 'localhost', (error) => {
+app.listen(config.port, 'localhost', error => {
     if (error) {
         console.log(error);
         return;
