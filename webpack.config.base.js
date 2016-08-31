@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
     module: {
         loaders: [{
@@ -9,7 +7,7 @@ module.exports = {
         }]
     },
     output: {
-        path: path.join(__dirname),
+        path: __dirname,
         filename: 'bundle.js',
         libraryTarget: 'commonjs2'
     },
