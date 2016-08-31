@@ -1,16 +1,41 @@
-import React from 'react';
-
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import Chance from 'chance';
 import {remote} from 'electron';
 
-module.exports = React.createClass({
-    render() {
-        const userData = remote.app.getPath('userData');
+const App = ({name, onClick}) => {
+    return (
+        <section>
+            <h1>Hello React!</h1>
+            <h2>User Data: {remote.app.getPath('userData')}</h2>
+            <button onClick={onClick}>
+                Change Name
+            </button>
+            <p>Name: {name}</p>
+        </section>
+    );
+};
 
-        return (
-            <div>
-                <h1>Hello React!</h1>
-                <h2>User Data: {userData}</h2>
-            </div>
-        );
-    }
-});
+const mapStateToProps = (state, ownProps) => {
+    return {
+        name: state.name,
+    };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    const chance = new Chance();
+
+    return {
+        onClick: () => {
+            dispatch({
+                type: 'CHANGE_NAME',
+                name: chance.name()
+            });
+        },
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
