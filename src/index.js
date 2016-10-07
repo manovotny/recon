@@ -1,9 +1,9 @@
 import React from 'react';
+import {createStore} from 'redux';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
-import App from './app';
 
-import {createStore} from 'redux';
+import App from './app';
 
 const reducer = (state = {}, action) => {
     switch (action.type) {
@@ -12,12 +12,15 @@ const reducer = (state = {}, action) => {
                 ...state,
                 name: action.name
             };
+
             return obj;
         default:
             return state;
     }
 };
-const store = createStore(reducer);
+const store = createStore(reducer, {
+    name: 'Michael Novotny'
+});
 
 render(
     <Provider store={store}>

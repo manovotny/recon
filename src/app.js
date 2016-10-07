@@ -1,37 +1,44 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, {PropTypes} from 'react';
 import Chance from 'chance';
+import {connect} from 'react-redux';
 import {remote} from 'electron';
 
 const App = ({name, onClick}) => {
     return (
         <section>
-            <h1>Hello React!</h1>
-            <h2>User Data: {remote.app.getPath('userData')}</h2>
+            <h1>{'Hello React!'}</h1>
+            <h2>{`User Data: ${remote.app.getPath('userData')}`}</h2>
             <button onClick={onClick}>
-                Change Name
+                {'Change Name'}
             </button>
-            <p>Name: {name}</p>
+            <p>{`Name: ${name}`}</p>
         </section>
     );
 };
 
-const mapStateToProps = (state, ownProps) => {
+App.displayName = 'App';
+
+App.propTypes = {
+    name: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
+};
+
+const mapStateToProps = (state) => {
     return {
-        name: state.name,
+        name: state.name
     };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
     const chance = new Chance();
 
     return {
         onClick: () => {
             dispatch({
-                type: 'CHANGE_NAME',
-                name: chance.name()
+                name: chance.name(),
+                type: 'CHANGE_NAME'
             });
-        },
+        }
     };
 };
 

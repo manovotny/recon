@@ -1,5 +1,6 @@
-const express = require('express');
 const path = require('path');
+
+const express = require('express');
 const webpack = require('webpack');
 
 const config = require('./webpack.config.development');
@@ -21,11 +22,12 @@ app.get('*', (request, response) => {
     response.sendFile(path.join(__dirname, 'app', 'index.development.html'));
 });
 
-app.listen(config.port, 'localhost', error => {
+app.listen(config.port, 'localhost', (error) => {
     if (error) {
-        console.log(error);
+        console.log(error); // eslint-disable-line no-console
+
         return;
     }
 
-    console.log(`Listening at http://localhost:${config.port}`);
+    console.log(`Listening at http://localhost:${config.port}`); // eslint-disable-line no-console
 });

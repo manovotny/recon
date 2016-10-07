@@ -1,16 +1,18 @@
 module.exports = {
     module: {
         loaders: [{
-            test: /\.js?$/,
-            loaders: ['babel-loader'],
-            exclude: /node_modules/
+            exclude: /node_modules/,
+            loaders: [
+                'babel-loader'
+            ],
+            test: /\.js?$/
         }]
     },
     output: {
-        path: __dirname,
         filename: 'bundle.js',
-        libraryTarget: 'commonjs2'
+        libraryTarget: 'commonjs2',
+        path: __dirname
     },
-    port: 3000,
-    plugins: []
+    plugins: [],
+    port: 3000
 };

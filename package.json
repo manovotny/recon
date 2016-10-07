@@ -24,12 +24,15 @@
     "notifications",
     "search"
   ],
+  "engines": {
+    "node": ">=6"
+  },
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack.config.production.js --progress --profile --colors",
+    "eslint": "eslint . --ext .json --ext .js",
     "hot": "node webpack.server.js",
     "start": "NODE_ENV=development HOT=1 electron .",
-    "test": "xo && mocha",
-    "xo": "xo"
+    "test": "npm run eslint && mocha"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",
@@ -39,7 +42,9 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-react-hmre": "^1.0.1",
     "babel-preset-stage-0": "^6.3.13",
+    "chance": "1.0.4",
     "electron": "1.3.4",
+    "eslint-config-get-off-my-lawn": "1.0.0",
     "express": "^4.13.3",
     "mocha": "^2.3.0",
     "react": "15.3.1",
@@ -50,22 +55,6 @@
     "webpack": "^1.12.1",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.4.1",
-    "webpack-target-electron-renderer": "^0.3.0",
-    "xo": "^0.12.1"
-  },
-  "xo": {
-    "envs": [
-      "browser",
-      "mocha",
-      "node"
-    ],
-    "esnext": true,
-    "space": 4,
-    "rules": {
-      "quote-props": [
-        2,
-        "as-needed"
-      ]
-    }
+    "webpack-target-electron-renderer": "^0.3.0"
   }
 }
