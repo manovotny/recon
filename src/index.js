@@ -1,26 +1,55 @@
 import React from 'react';
-import {createStore} from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
+import createLogger from 'redux-logger';
 
 import App from './app';
 
+/* eslint-disable complexity */
 const reducer = (state = {}, action) => {
     switch (action.type) {
         case 'CHANGE_NAME':
-            const obj = {
+            return {
                 ...state,
                 name: action.name
             };
-
-            return obj;
+        case 'DO_SEARCH':
+            return {
+                ...state,
+                isFetching: true
+            };
+        case 'SEARCH_COMPLETE':
+            return {
+                ...state,
+                isFetching: false,
+                response: action.response
+            };
+        case 'UPDATE_SEARCH_TERM':
+            return {
+                ...state,
+                term: action.term
+            };
         default:
             return state;
     }
 };
-const store = createStore(reducer, {
-    name: 'Michael Novotny'
-});
+/* eslint-disable complexity */
+
+const middlewares = [];
+
+if (process.env.NODE_ENV !== 'production') {
+    middlewares.push(createLogger());
+}
+
+const store = createStore(reducer,
+    {
+        isFetching: false,
+        name: 'Michael Novotny',
+        term: ''
+    },
+    applyMiddleware(...middlewares)
+);
 
 render(
     <Provider store={store}>

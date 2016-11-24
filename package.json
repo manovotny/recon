@@ -33,7 +33,7 @@
     "hot": "node webpack.server.js",
     "start": "NODE_ENV=development HOT=1 electron .",
     "test": "jest",
-    "verify": "npm run eslint && jest"
+    "verify": "npm run eslint && npm run test"
   },
   "devDependencies": {
     "babel-core": "6.18.2",
@@ -46,11 +46,12 @@
     "babel-preset-stage-0": "^6.3.13",
     "chance": "1.0.4",
     "electron": "1.4.5",
-    "eslint-config-get-off-my-lawn": "1.1.0",
+    "eslint-config-get-off-my-lawn": "1.2.0",
     "express": "^4.13.3",
     "jest": "17.0.0",
     "react": "15.3.2",
     "react-dom": "15.3.2",
+    "redux-logger": "2.7.4",
     "react-redux": "4.4.5",
     "redux": "3.6.0",
     "sinon": "^1.17.2",
