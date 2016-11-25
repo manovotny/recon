@@ -1,4 +1,6 @@
 language: node_js
 notifications:
-  email: false
+  email:
+    on_success: change
+    on_failure: always
 script: npm run verify
