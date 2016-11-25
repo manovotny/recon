@@ -1,4 +1,4 @@
-# recon
+# recon [![Build Status](https://travis-ci.org/manovotny/recon.svg?branch=master)](https://travis-ci.org/manovotny/recon)
 
 An iTunes search and notification app built using [Electron](http://electron.atom.io).
 
