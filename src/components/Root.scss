@@ -1,0 +1,52 @@
+@import '~normalize.css/normalize.css';
+
+@mixin clearfix {
+    &::after {
+        clear: both;
+        content: '';
+        display: table;
+    }
+}
+
+html {
+    box-sizing: border-box;
+    min-width: 320px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body,
+#root,
+.app {
+    height: 100%;
+    width: 100%;
+}
+
+.app {
+    @include clearfix;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+aside {
+    -webkit-app-region: drag;
+    background-color: #262626;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 75px;
+}
+
+main {
+    display: inline-block;
+    margin-left: 75px;
+    padding: 0 20px;
+    word-break: break-word;
+}

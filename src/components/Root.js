@@ -3,10 +3,19 @@ import {Provider} from 'react-redux';
 
 import App from './App';
 
-const Root = ({store}) =>
-    <Provider store={store}>
-        <App />
-    </Provider>;
+class Root extends React.Component {
+    componentDidMount() {
+        require('./Root.scss');
+    }
+
+    render() {
+        return (
+            <Provider store={this.props.store}>
+                <App />
+            </Provider>
+        );
+    }
+}
 
 Root.displayName = 'Root';
 
