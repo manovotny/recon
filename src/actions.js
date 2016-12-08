@@ -1,16 +1,16 @@
-import * as api from '../api';
+import * as api from './api';
 
 export const types = {
-    CHANGE_NAME: 'CHANGE_NAME',
     DO_SEARCH: 'DO_SEARCH',
+    ROUTE: 'ROUTE',
     SEARCH_COMPLETE: 'SEARCH_COMPLETE',
     UPDATE_SEARCH_TERM: 'UPDATE_SEARCH_TERM'
 };
 
-export const changeName = (name) => (dispatch) => {
+export const route = (value) => (dispatch) => {
     dispatch({
-        name,
-        type: types.CHANGE_NAME
+        route: value,
+        type: types.ROUTE
     });
 };
 

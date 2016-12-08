@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 
-import {types} from '../actions';
+import {types} from './actions';
 
 const isFetching = (state = false, action) => {
     switch (action.type) {
@@ -13,19 +13,19 @@ const isFetching = (state = false, action) => {
     }
 };
 
-const name = (state = 'Michael Novotny', action) => {
+const response = (state = null, action) => {
     switch (action.type) {
-        case types.CHANGE_NAME:
-            return action.name;
+        case types.SEARCH_COMPLETE:
+            return action.response;
         default:
             return state;
     }
 };
 
-const response = (state = null, action) => {
+const route = (state = '/notifications', action) => {
     switch (action.type) {
-        case types.SEARCH_COMPLETE:
-            return action.response;
+        case types.ROUTE:
+            return action.route;
         default:
             return state;
     }
@@ -42,8 +42,8 @@ const term = (state = '', action) => {
 
 const reducers = combineReducers({
     isFetching,
-    name,
     response,
+    route,
     term
 });
 

@@ -1,8 +1,10 @@
+import throttle from 'lodash.throttle';
 import {applyMiddleware, createStore} from 'redux';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import reducers from './reducers';
+import {loadState, saveState} from './local-storage';
 
 const configureStore = () => {
     const middlewares = [thunk];
@@ -11,10 +13,21 @@ const configureStore = () => {
         middlewares.push(createLogger());
     }
 
-    return createStore(
+    const store = createStore(
         reducers,
+        loadState(),
         applyMiddleware(...middlewares)
     );
+
+    store.subscribe(throttle(() => {
+        const state = store.getState();
+
+        saveState({
+            route: state.route
+        });
+    }, 1000));
+
+    return store;
 };
 
 export default configureStore;

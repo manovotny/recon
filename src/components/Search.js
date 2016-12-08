@@ -1,24 +1,16 @@
 import React, {PropTypes} from 'react';
-import Chance from 'chance';
 import {connect} from 'react-redux';
-import {remote} from 'electron';
 
-import {changeName, changeTerm, search} from '../actions';
+import {changeTerm, search} from '../actions';
 
+import Navigation from './Navigation';
 import SearchResults from './SearchResults';
 
-const chance = new Chance();
-
-const App = ({name, isFetching, response, term, dispatch}) =>
+const Search = ({term, isFetching, response, dispatch}) =>
     <section className="app">
-        <aside />
+        <Navigation />
         <main>
-            <h1>{'Hello React!'}</h1>
-            <h2>{`User Data: ${remote.app.getPath('userData')}`}</h2>
-            <button onClick={() => dispatch(changeName(chance.name()))}>
-                {'Change Name'}
-            </button>
-            <p>{`Name: ${name}`}</p>
+            <h2>{'Search'}</h2>
             <input
                 onChange={(event) => dispatch(changeTerm(event.target.value))}
                 value={term}
@@ -33,23 +25,21 @@ const App = ({name, isFetching, response, term, dispatch}) =>
         </main>
     </section>;
 
-App.displayName = 'App';
+Search.displayName = 'Search';
 
-App.propTypes = {
+Search.propTypes = {
     dispatch: PropTypes.func.isRequired,
     isFetching: PropTypes.bool,
-    name: PropTypes.string.isRequired,
     response: PropTypes.object,
     term: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state) => ({
     isFetching: state.isFetching,
-    name: state.name,
     response: state.response,
     term: state.term
 });
 
 export default connect(
     mapStateToProps
-)(App);
+)(Search);
