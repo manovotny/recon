@@ -1,4 +1,5 @@
 const electron = require('electron');
+const windowStateManager = require('electron-window-state');
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -12,15 +13,21 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', () => {
-    window = new BrowserWindow({
-        // fullscreen: windowState.isFullScreen,
-        // height: windowState.height,
-        // maximize: windowState.isMaximized,
-        titleBarStyle: 'hidden'
-        // width: windowState.width,
-        // x: windowState.x,
-        // y: windowState.y
+    const windowState = windowStateManager({
+        file: 'window.json'
     });
+
+    window = new BrowserWindow({
+        fullscreen: windowState.isFullScreen,
+        height: windowState.height,
+        maximize: windowState.isMaximized,
+        titleBarStyle: 'hidden',
+        width: windowState.width,
+        x: windowState.x,
+        y: windowState.y
+    });
+
+    windowState.manage(window);
 
     if (process.env.HOT) {
         window.loadURL(`file://${__dirname}/index.development.html`);
