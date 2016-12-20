@@ -6,6 +6,19 @@
     padding: 0;
 }
 
+@mixin chevron($size, $weight, $rotation) {
+    border-color: #808080;
+    border-style: solid;
+    border-width: $weight $weight 0 0;
+    content: '';
+    display: inline-block;
+    height: $size;
+    position: absolute;
+    transform: rotate($rotation);
+    vertical-align: top;
+    width: $size;
+}
+
 html {
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -23,6 +36,7 @@ html {
 
 a {
     color: #2D2D2D;
+    cursor: default;
     text-decoration: none;
 }
 
@@ -66,15 +80,33 @@ main {
     word-break: break-word;
 }
 
-.title {
+.header {
     -webkit-app-region: drag;
     background-image: linear-gradient(to bottom, #EEECEE 0%, #D5D3D5 100%);
     border-bottom: 1px solid #BBBBBB;
     color: #2D2D2D;
+    margin: 0;
+    padding: 10px 0;
+    position: relative;
+
+    a {
+        font-size: 11px;
+        margin-top: 1px;
+        padding-left: 20px;
+        position: absolute;
+
+        &::before {
+            @include chevron(8px, 2px, 225deg);
+            left: 10px;
+            top: 3px;
+        }
+    }
+}
+
+.title-bar {
     font-size: 13px;
     font-weight: lighter;
     margin: 0;
-    padding: 10px 0;
     text-align: center;
 }
 
@@ -99,27 +131,14 @@ main {
         position: relative;
 
         &::after {
-            $size: 8px;
-            $weight: 2px;
-
-            border-color: #808080;
-            border-style: solid;
-            border-width: $weight $weight 0 0;
-            content: '';
-            display: inline-block;
-            height: $size;
-            position: absolute;
+            @include chevron(8px, 2px, 45deg);
             right: 15px;
             top: 19px;
-            transform: rotate(45deg);
-            vertical-align: top;
-            width: $size;
         }
     }
 
     a {
         display: block;
         padding: 15px;
-        cursor: default;
     }
 }

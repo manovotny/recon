@@ -5,12 +5,13 @@ import {changeTerm} from '../actions';
 
 import Navigation from './Navigation';
 import SearchOptions from './SearchOptions';
+import TitleBar from './TitleBar';
 
 const Search = ({term, dispatch}) =>
     <section className="app">
         <Navigation />
         <main>
-            <h2 className="title">{'Search'}</h2>
+            <TitleBar title={'Search'} />
             <section className="search-bar">
                 <input
                     onChange={(event) => dispatch(changeTerm(event.target.value))}
