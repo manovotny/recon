@@ -1,15 +1,17 @@
 @import '~normalize.css/normalize.css';
 
-@mixin clearfix {
-    &::after {
-        clear: both;
-        content: '';
-        display: table;
-    }
+@mixin list-no-bullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 html {
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: lighter;
+    line-height: 1.25;
     min-width: 320px;
 }
 
@@ -17,6 +19,11 @@ html {
 *::before,
 *::after {
     box-sizing: inherit;
+}
+
+a {
+    color: #2D2D2D;
+    text-decoration: none;
 }
 
 html,
@@ -28,7 +35,6 @@ body,
 }
 
 .app {
-    @include clearfix;
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
@@ -39,6 +45,7 @@ body,
     background-color: #262626;
     bottom: 0;
     left: 0;
+    overflow: hidden;
     padding-top: 10px;
     position: fixed;
     top: 0;
@@ -48,13 +55,71 @@ body,
         color: #fff;
         display: block;
         margin: 15px 0;
-        text-decoration: none;
     }
 }
 
 main {
-    display: inline-block;
+    background-color: #F5F5F5;
+    display: block;
+    height: 100%;
     margin-left: 75px;
-    padding: 0 20px;
     word-break: break-word;
+}
+
+.title {
+    -webkit-app-region: drag;
+    background-image: linear-gradient(to bottom, #EEECEE 0%, #D5D3D5 100%);
+    border-bottom: 1px solid #BBBBBB;
+    color: #2D2D2D;
+    font-size: 13px;
+    font-weight: lighter;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.search-bar {
+    background-color: #EAEAEA;
+    padding: 6px;
+
+    input {
+        border: 1px solid #CDCDCD;
+        border-radius: 2px;
+        padding: 4px;
+        width: 100%;
+    }
+}
+
+.search-options {
+    @include list-no-bullets;
+
+    li {
+        background-color: #fff;
+        border-bottom: 1px solid #E6E6E6;
+        position: relative;
+
+        &::after {
+            $size: 8px;
+            $weight: 2px;
+
+            border-color: #808080;
+            border-style: solid;
+            border-width: $weight $weight 0 0;
+            content: '';
+            display: inline-block;
+            height: $size;
+            position: absolute;
+            right: 15px;
+            top: 19px;
+            transform: rotate(45deg);
+            vertical-align: top;
+            width: $size;
+        }
+    }
+
+    a {
+        display: block;
+        padding: 15px;
+        cursor: default;
+    }
 }

@@ -9,6 +9,8 @@ import Music from './Music';
 import Movies from './Movies';
 import Removed from './Removed';
 import Search from './Search';
+import SearchMovies from './SearchMovies';
+import SearchMusic from './SearchMusic';
 
 class Root extends React.Component {
     componentDidMount() {
@@ -43,6 +45,14 @@ class Root extends React.Component {
                     <Route
                         component={Search}
                         path="/search"
+                    />
+                    <Route
+                        component={SearchMovies}
+                        path="/search/movies"
+                    />
+                    <Route
+                        component={SearchMusic}
+                        path="/search/music"
                     />
                     <Redirect
                         from="/"
