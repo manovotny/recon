@@ -1,14 +1,9 @@
 import React from 'react';
 
-import Navigation from './Navigation';
-
 const Music = () =>
-    <section className="app">
-        <Navigation />
-        <main>
-            <h2>{'Music'}</h2>
-        </main>
-    </section>;
+    <main>
+        <h2>{'Music'}</h2>
+    </main>;
 
 Music.displayName = 'Music';
 

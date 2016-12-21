@@ -1,14 +1,9 @@
 import React from 'react';
 
-import Navigation from './Navigation';
-
 const SearchMusic = () =>
-    <section className="app">
-        <Navigation />
-        <main>
-            <h2>{'SearchMusic'}</h2>
-        </main>
-    </section>;
+    <main>
+        <h2>{'SearchMusic'}</h2>
+    </main>;
 
 SearchMusic.displayName = 'SearchMusic';
 

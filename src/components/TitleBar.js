@@ -1,26 +1,15 @@
 import React, {PropTypes} from 'react';
-import {Link} from 'react-router';
 
-const getBackButton = (previous, previousTo) => {
-    if (!previous || !previousTo) {
-        return null;
-    }
+import TitleBarBackButton from './TitleBarBackButton';
 
-    return (
-        <Link to={previousTo}>{previous}</Link>
-    );
-};
-
-const TitleBar = ({previous, previousTo, title}) => {
-    const backButton = getBackButton(previous, previousTo);
-
-    return (
-        <header className="header">
-            {backButton}
-            <h1 className="title-bar">{title}</h1>
-        </header>
-    );
-};
+const TitleBar = ({previous, previousTo, title}) =>
+    <header className="header">
+        <TitleBarBackButton
+            previous={previous}
+            previousTo={previousTo}
+        />
+        <h1 className="title-bar">{title}</h1>
+    </header>;
 
 TitleBar.displayName = 'TitleBar';
 
