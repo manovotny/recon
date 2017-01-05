@@ -1,9 +1,8 @@
 import * as api from './api';
 
 export const types = {
-    DO_SEARCH: 'DO_SEARCH',
+    SET_SEARCH_RESULTS: 'SET_SEARCH_RESULTS',
     ROUTE: 'ROUTE',
-    SEARCH_COMPLETE: 'SEARCH_COMPLETE',
     UPDATE_SEARCH_TERM: 'UPDATE_SEARCH_TERM'
 };
 
@@ -14,15 +13,30 @@ export const route = (value) => (dispatch) => {
     });
 };
 
-export const search = (term) => (dispatch) => {
+export const searchMovies = (term) => (dispatch) => {
     dispatch({
-        type: types.DO_SEARCH
+        searchResults: null,
+        type: types.SET_SEARCH_RESULTS
     });
 
-    api.search(term).then((response) => {
+    api.searchMovies(term).then((response) => {
         dispatch({
-            response,
-            type: types.SEARCH_COMPLETE
+            searchResults: response,
+            type: types.SET_SEARCH_RESULTS
+        });
+    });
+};
+
+export const searchMusic = (term) => (dispatch) => {
+    dispatch({
+        searchResults: null,
+        type: types.SET_SEARCH_RESULTS
+    });
+
+    api.searchMusic(term).then((response) => {
+        dispatch({
+            searchResults: response,
+            type: types.SET_SEARCH_RESULTS
         });
     });
 };

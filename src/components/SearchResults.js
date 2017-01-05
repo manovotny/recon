@@ -1,11 +1,8 @@
 import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
 
-const SearchResults = ({isFetching, response}) => {
-    if (!response) {
-        return null;
-    }
-
-    if (isFetching) {
+const SearchResults = ({searchResults, titleAttribute}) => {
+    if (!searchResults) {
         return (
             <p>{'Loading...'}</p>
         );
@@ -13,7 +10,7 @@ const SearchResults = ({isFetching, response}) => {
 
     return (
         <ul>
-            {response.results.map((result, index) => <li key={index}>{result.artistName}</li>)}
+            {searchResults.results.map((result, index) => <li key={index}>{result[titleAttribute]}</li>)}
         </ul>
     );
 };
@@ -21,8 +18,14 @@ const SearchResults = ({isFetching, response}) => {
 SearchResults.displayName = 'SearchResults';
 
 SearchResults.propTypes = {
-    isFetching: PropTypes.bool,
-    response: PropTypes.object
+    searchResults: PropTypes.object,
+    titleAttribute: PropTypes.string.isRequired
 };
 
-export default SearchResults;
+const mapStateToProps = (state) => ({
+    searchResults: state.searchResults
+});
+
+export default connect(
+    mapStateToProps
+)(SearchResults);

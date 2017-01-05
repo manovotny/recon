@@ -1,10 +1,42 @@
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
 
-const SearchMusic = () =>
-    <main>
-        <h2>{'SearchMusic'}</h2>
-    </main>;
+import SearchResults from './SearchResults';
+import TitleBar from './TitleBar';
+import {searchMusic} from '../actions';
+
+class SearchMusic extends Component {
+    componentWillMount() {
+        const {dispatch, term} = this.props;
+
+        dispatch(searchMusic(term));
+    }
+
+    render() {
+        return (
+            <main>
+                <TitleBar
+                    previous={'Search'}
+                    previousTo={'/search'}
+                    title={this.props.term}
+                />
+                <SearchResults titleAttribute="artistName" />
+            </main>
+        );
+    }
+}
 
 SearchMusic.displayName = 'SearchMusic';
 
-export default SearchMusic;
+SearchMusic.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    term: PropTypes.string.isRequired
+};
+
+const mapStateToProps = (state) => ({
+    term: state.term
+});
+
+export default connect(
+    mapStateToProps
+)(SearchMusic);

@@ -21,9 +21,11 @@ const configureStore = () => {
 
     store.subscribe(throttle(() => {
         const state = store.getState();
+        const {route, term} = state;
 
         saveState({
-            route: state.route
+            route,
+            term
         });
     }, 1000));
 

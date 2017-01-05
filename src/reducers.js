@@ -2,21 +2,10 @@ import {combineReducers} from 'redux';
 
 import {types} from './actions';
 
-const isFetching = (state = false, action) => {
+const searchResults = (state = null, action) => {
     switch (action.type) {
-        case types.DO_SEARCH:
-            return true;
-        case types.SEARCH_COMPLETE:
-            return false;
-        default:
-            return state;
-    }
-};
-
-const response = (state = null, action) => {
-    switch (action.type) {
-        case types.SEARCH_COMPLETE:
-            return action.response;
+        case types.SET_SEARCH_RESULTS:
+            return action.searchResults;
         default:
             return state;
     }
@@ -41,8 +30,7 @@ const term = (state = '', action) => {
 };
 
 const reducers = combineReducers({
-    isFetching,
-    response,
+    searchResults,
     route,
     term
 });
