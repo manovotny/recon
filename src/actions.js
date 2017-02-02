@@ -1,8 +1,8 @@
 import * as api from './api';
 
 export const types = {
-    SET_SEARCH_RESULTS: 'SET_SEARCH_RESULTS',
     ROUTE: 'ROUTE',
+    SET_SEARCH_RESULTS: 'SET_SEARCH_RESULTS',
     UPDATE_SEARCH_TERM: 'UPDATE_SEARCH_TERM'
 };
 

@@ -1,11 +1,10 @@
-const fetch = (url) => {
-    return window.fetch(url)
+const fetch = (url) =>
+    window.fetch(url)
         .then((response) => response.json())
         .then((json) => json)
         .catch((error) => {
             throw error;
         });
-};
 
 export const searchMovies = (term) => {
     const encodedTerm = encodeURI(term);

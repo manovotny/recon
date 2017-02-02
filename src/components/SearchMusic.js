@@ -1,9 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 
+import {searchMusic} from '../actions';
+
 import SearchResults from './SearchResults';
 import TitleBar from './TitleBar';
-import {searchMusic} from '../actions';
 
 class SearchMusic extends Component {
     componentWillMount() {

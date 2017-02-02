@@ -30,8 +30,8 @@ const term = (state = '', action) => {
 };
 
 const reducers = combineReducers({
-    searchResults,
     route,
+    searchResults,
     term
 });
 
