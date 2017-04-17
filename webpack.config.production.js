@@ -5,7 +5,7 @@ const baseConfig = require('./webpack.config.base');
 
 const config = Object.create(baseConfig);
 
-config.devtool = 'source-map';
+config.devtool = 'cheap-module-source-map';
 
 config.entry = './src/index';
 
