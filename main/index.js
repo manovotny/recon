@@ -1,32 +1,37 @@
-// Native
-const { format } = require('url')
+const {format} = require('url');
 
-// Packages
-const { BrowserWindow, app } = require('electron')
-const isDev = require('electron-is-dev')
-const prepareNext = require('electron-next')
-const { resolve } = require('app-root-path')
+const {resolve} = require('app-root-path');
+const {BrowserWindow, app} = require('electron');
+const isDev = require('electron-is-dev');
+const prepareNext = require('electron-next');
+const electronWindowState = require('electron-window-state');
 
-// Prepare the renderer once the app is ready
 app.on('ready', async () => {
-    await prepareNext('./renderer')
+    await prepareNext('./renderer');
 
-    const mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600
-    })
+    const windowState = electronWindowState();
 
-    const devPath = 'http://localhost:8000/app'
+    const window = new BrowserWindow({
+        fullscreen: windowState.isFullScreen,
+        height: windowState.height,
+        maximize: windowState.isMaximized,
+        titleBarStyle: 'hidden',
+        width: windowState.width,
+        x: windowState.x,
+        y: windowState.y
+    });
 
+    windowState.manage(window);
+
+    const devPath = 'http://localhost:8000/app';
     const prodPath = format({
         pathname: resolve('renderer/out/app/index.html'),
         protocol: 'file:',
         slashes: true
-    })
+    });
+    const url = isDev ? devPath : prodPath;
 
-    const url = isDev ? devPath : prodPath
-    mainWindow.loadURL(url)
-})
+    window.loadURL(url);
+});
 
-// Quit the app once all windows are closed
-app.on('window-all-closed', app.quit)
+app.on('window-all-closed', app.quit);
