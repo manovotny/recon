@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 
-import {searchMusic} from '../actions';
+import {searchMusic} from '../../renderer/actions';
 
 import SearchResults from './SearchResults';
 import TitleBar from './TitleBar';

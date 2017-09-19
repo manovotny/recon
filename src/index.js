@@ -3,8 +3,8 @@ import {render} from 'react-dom';
 import {Provider} from 'react-redux';
 import {IndexRedirect, Router, Route, hashHistory} from 'react-router';
 
-import configureStore from './configure-store';
-import {route} from './actions';
+import configureStore from '../renderer/store';
+import {route} from '../renderer/actions';
 import App from './components/App';
 import Notifications from './components/Notifications';
 import Music from './components/Music';

@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 
-import {changeTerm} from '../actions';
+import {changeTerm} from '../../renderer/actions';
 
 import SearchOptions from './SearchOptions';
 import TitleBar from './TitleBar';
