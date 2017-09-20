@@ -8,12 +8,12 @@ import withRedux from 'next-redux-wrapper';
 import styled from 'styled-components';
 
 const StyledTitle = styled.h1`
-    color: #f00;
+    color: #0f0;
     cursor: pointer;
     font-size: 50px;
 `;
 
-class App extends React.Component {
+class About extends React.Component {
     static getInitialProps ({store, isServer, pathname, res}) {
         const r = store.getState().route;
 
@@ -40,9 +40,9 @@ class App extends React.Component {
     render() {
         return (
             <section>
-                <StyledTitle>{'App'}</StyledTitle>
-                <Link href="/about">
-                    <a href="/about">{'About'}</a>
+                <StyledTitle>{'About'}</StyledTitle>
+                <Link href="/app">
+                    <a href="/app">{'App'}</a>
                 </Link>
             </section>
         );
@@ -53,4 +53,4 @@ const mapDispatchToProps = (dispatch) => ({
     route: bindActionCreators(route, dispatch)
 });
 
-export default withRedux(initStore, null, mapDispatchToProps)(App)
+export default withRedux(initStore, null, mapDispatchToProps)(About)
