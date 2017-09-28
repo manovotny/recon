@@ -8,21 +8,16 @@ import withRedux from 'next-redux-wrapper';
 import BasePage from '../components/BasePage';
 import StyledTitle from '../components/StyledTitle';
 
-class App extends BasePage {
-    render() {
-        return (
-            <section>
-                <StyledTitle>{'App'}</StyledTitle>
-                <Link
-                    href="/about"
-                    prefetch
-                >
-                    <a href="/about">{'About'}</a>
-                </Link>
-            </section>
-        );
-    }
-}
+const App = ({route}) =>
+    <BasePage route={route}>
+        <StyledTitle>{'App'}</StyledTitle>
+        <Link
+            href="/about"
+            prefetch
+        >
+            <a href="/about">{'About'}</a>
+        </Link>
+    </BasePage>;
 
 const mapDispatchToProps = (dispatch) => ({
     route: bindActionCreators(route, dispatch)

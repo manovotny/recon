@@ -24,6 +24,14 @@ class BasePage extends React.Component {
     componentWillUnmount() {
         Router.onRouteChangeComplete = null;
     }
+
+    render() {
+        return (
+            <section>
+                {this.props.children}
+            </section>
+        )
+    }
 }
 
 export default BasePage;
