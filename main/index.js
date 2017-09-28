@@ -6,6 +6,8 @@ const isDev = require('electron-is-dev');
 const prepareNext = require('electron-next');
 const electronWindowState = require('electron-window-state');
 
+require('electron-debug')({showDevTools: isDev});
+
 app.on('ready', async () => {
     await prepareNext('./renderer');
 
