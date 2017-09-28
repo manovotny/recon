@@ -7,11 +7,11 @@ import Navigation from '../components/Navigation';
 
 export const getInitialProps = ({store, isServer, pathname, res}) => {
     if (isServer) {
-        const r = store.getState().route;
+        const route = store.getState().route;
 
-        if (r !== pathname) {
+        if (route !== pathname) {
             res.writeHead(301, {
-                Location: r
+                Location: route
             });
             res.end();
         }
