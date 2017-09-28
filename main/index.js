@@ -26,7 +26,7 @@ const installExtensions = () => {
 app.on('ready', async () => {
     await prepareNext('./renderer');
 
-    // installExtensions();
+    installExtensions();
 
     const windowState = electronWindowState();
 
