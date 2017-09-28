@@ -26,7 +26,7 @@ const installExtensions = () => {
 app.on('ready', async () => {
     await prepareNext('./renderer');
 
-    installExtensions();
+    // installExtensions();
 
     const windowState = electronWindowState();
 
@@ -42,9 +42,9 @@ app.on('ready', async () => {
 
     windowState.manage(window);
 
-    const devPath = 'http://localhost:8000/app';
+    const devPath = 'http://localhost:8000/search';
     const prodPath = format({
-        pathname: resolve('renderer/out/app/index.html'),
+        pathname: resolve('renderer/out/search/index.html'),
         protocol: 'file:',
         slashes: true
     });
