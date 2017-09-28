@@ -5,7 +5,7 @@ import {route} from '../actions';
 import initStore from '../store';
 import withRedux from 'next-redux-wrapper';
 
-import BasePage from '../components/BasePage';
+import BasePage, {getInitialProps} from "../components/BasePage";
 import StyledTitle from '../components/StyledTitle';
 
 const App = ({route}) =>
@@ -18,6 +18,8 @@ const App = ({route}) =>
             <a href="/about">{'About'}</a>
         </Link>
     </BasePage>;
+
+App.getInitialProps = getInitialProps;
 
 const mapDispatchToProps = (dispatch) => ({
     route: bindActionCreators(route, dispatch)

@@ -29,9 +29,6 @@ const getInitialState = () => {
 export const saveState = (state) => {
     const path = getStatePath();
 
-    console.log('path', path);
-    console.log('state', state);
-
     fs.writeJsonSync(path, state);
 };
 
