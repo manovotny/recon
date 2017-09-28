@@ -18,7 +18,7 @@ const getStatePath = () => {
 
 const getInitialState = () => {
     const defaultState = {
-        route: '/app'
+        route: '/search'
     };
     const path = getStatePath();
     const state = fs.readJsonSync(path, {throws: false});

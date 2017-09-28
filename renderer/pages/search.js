@@ -4,15 +4,13 @@ import {route} from '../actions';
 import initStore from '../store';
 import withRedux from 'next-redux-wrapper';
 
-import BasePage, {getInitialProps} from "../components/BasePage";
-import Link from '../components/Link';
+import Layout, {getInitialProps} from "../components/Layout";
 import StyledTitle from '../components/StyledTitle';
 
 const App = ({route}) =>
-    <BasePage route={route}>
-        <StyledTitle>{'App'}</StyledTitle>
-        <Link href="/about">{'About'}</Link>
-    </BasePage>;
+    <Layout route={route}>
+        <StyledTitle>{'Search'}</StyledTitle>
+    </Layout>;
 
 App.getInitialProps = getInitialProps;
 

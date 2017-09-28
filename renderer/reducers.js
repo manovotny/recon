@@ -11,7 +11,7 @@ const searchResults = (state = null, action) => {
     }
 };
 
-const route = (state = '/app', action) => {
+const route = (state = '/search', action) => {
     switch (action.type) {
         case types.ROUTE:
             return action.route;

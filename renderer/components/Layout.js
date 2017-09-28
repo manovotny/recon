@@ -1,7 +1,9 @@
 import React from 'react';
 import Router from 'next/router';
 import reset from 'styled-reset'
-import {injectGlobal} from 'styled-components';
+import styled, {injectGlobal} from 'styled-components';
+
+import Navigation from '../components/Navigation';
 
 export const getInitialProps = ({store, isServer, pathname, res}) => {
     if (isServer) {
@@ -18,7 +20,15 @@ export const getInitialProps = ({store, isServer, pathname, res}) => {
             ${reset}
 
             html {
+                box-sizing: border-box;
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+                line-height: 1.25;
+            }
+            
+            *,
+            *::before,
+            *::after {
+                box-sizing: inherit;
             }
         `;
     }
@@ -26,7 +36,17 @@ export const getInitialProps = ({store, isServer, pathname, res}) => {
     return store;
 };
 
-class BasePage extends React.Component {
+const StyledMain = styled.main`
+    background-color: #F5F5F5;
+    bottom: 0;
+    left: 75px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    word-break: break-word;
+`;
+
+class Layout extends React.Component {
     componentWillMount() {
         Router.onRouteChangeComplete = (url) => {
             this.props.route(url);
@@ -40,10 +60,13 @@ class BasePage extends React.Component {
     render() {
         return (
             <section>
-                {this.props.children}
+                <Navigation/>
+                <StyledMain>
+                    {this.props.children}
+                </StyledMain>
             </section>
         )
     }
 }
 
-export default BasePage;
+export default Layout;
