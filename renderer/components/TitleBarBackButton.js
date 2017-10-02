@@ -11,8 +11,6 @@ const TitleBarBackButton = ({previous, previousTo}) => {
     );
 };
 
-TitleBarBackButton.displayName = 'TitleBarBackButton';
-
 TitleBarBackButton.propTypes = {
     previous: PropTypes.string,
     previousTo: PropTypes.string

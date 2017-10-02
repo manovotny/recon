@@ -1,21 +1,26 @@
+import withRedux from 'next-redux-wrapper';
+import PropTypes from 'prop-types';
 import React from 'react';
 import {bindActionCreators} from 'redux';
+
 import {route} from '../actions';
-import initStore from '../store';
-import withRedux from 'next-redux-wrapper';
-
-import Layout, {getInitialProps} from "../components/Layout";
+import Layout, {getInitialProps} from '../components/Layout';
 import StyledTitle from '../components/StyledTitle';
+import initStore from '../store';
 
-const App = ({route}) =>
-    <Layout route={route}>
+const Notifications = (props) =>
+    <Layout route={props.route}>
         <StyledTitle>{'Notifications'}</StyledTitle>
     </Layout>;
 
-App.getInitialProps = getInitialProps;
+Notifications.getInitialProps = getInitialProps;
+
+Notifications.propTypes = {
+    route: PropTypes.func
+};
 
 const mapDispatchToProps = (dispatch) => ({
     route: bindActionCreators(route, dispatch)
 });
 
-export default withRedux(initStore, null, mapDispatchToProps)(App)
+export default withRedux(initStore, null, mapDispatchToProps)(Notifications);

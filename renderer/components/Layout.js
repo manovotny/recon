@@ -1,7 +1,8 @@
-import React from 'react';
 import Router from 'next/router';
-import reset from 'styled-reset'
+import PropTypes from 'prop-types';
+import React from 'react';
 import styled, {injectGlobal} from 'styled-components';
+import reset from 'styled-reset';
 
 import Navigation from '../components/Navigation';
 
@@ -16,6 +17,7 @@ export const getInitialProps = ({store, isServer, pathname, res}) => {
             res.end();
         }
 
+        // eslint-disable-next-line no-unused-expressions
         injectGlobal`
             ${reset}
 
@@ -60,13 +62,18 @@ class Layout extends React.Component {
     render() {
         return (
             <section>
-                <Navigation/>
+                <Navigation />
                 <StyledMain>
                     {this.props.children}
                 </StyledMain>
             </section>
-        )
+        );
     }
 }
+
+Layout.propTypes = {
+    children: PropTypes.element,
+    route: PropTypes.func
+};
 
 export default Layout;

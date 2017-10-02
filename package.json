@@ -30,8 +30,7 @@
     "eslint": "eslint . --ext .json --ext .js",
     "lint": "npm run eslint",
     "start": "electron .",
-    "test": "npm run lint && npm run unit",
-    "unit": "jest"
+    "test": "npm run lint"
   },
   "build": {
     "files": [

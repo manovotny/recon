@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -11,5 +12,9 @@ const StyledTitle = ({children}) =>
     <Title>
         {children}
     </Title>;
+
+StyledTitle.propTypes = {
+    children: PropTypes.string
+};
 
 export default StyledTitle;

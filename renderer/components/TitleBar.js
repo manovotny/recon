@@ -25,8 +25,6 @@ const TitleBar = ({title}) =>
     </StyledHeader>;
 
 TitleBar.propTypes = {
-    previous: PropTypes.string,
-    previousTo: PropTypes.string,
     title: PropTypes.string.isRequired
 };
 

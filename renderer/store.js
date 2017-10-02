@@ -1,8 +1,7 @@
-import fs from 'fs-extra';
 import {join} from 'path';
 
-import {composeWithDevTools} from 'redux-devtools-extension'
-
+import fs from 'fs-extra';
+import {composeWithDevTools} from 'redux-devtools-extension';
 import throttle from 'lodash.throttle';
 import thunk from 'redux-thunk';
 import {app, remote} from 'electron';
@@ -21,7 +20,7 @@ const getInitialState = () => {
         route: '/search'
     };
     const path = getStatePath();
-    const state = fs.readJsonSync(path, {throws: false});
+    const state = fs.readJsonSync(path, {throws: false}); // eslint-disable-line no-sync
 
     return state || defaultState;
 };
@@ -29,7 +28,7 @@ const getInitialState = () => {
 export const saveState = (state) => {
     const path = getStatePath();
 
-    fs.writeJsonSync(path, state);
+    fs.writeJsonSync(path, state); // eslint-disable-line no-sync
 };
 
 const initStore = () => {
