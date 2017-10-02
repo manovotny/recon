@@ -1,5 +1,5 @@
-import React, {PropTypes} from 'react';
-import {Link} from 'react-router';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const TitleBarBackButton = ({previous, previousTo}) => {
     if (!previous || !previousTo) {
@@ -7,7 +7,7 @@ const TitleBarBackButton = ({previous, previousTo}) => {
     }
 
     return (
-        <Link to={previousTo}>{previous}</Link>
+        <a>{'BACK'}</a>
     );
 };
 

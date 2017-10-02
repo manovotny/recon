@@ -4,18 +4,20 @@ import {route} from '../actions';
 import initStore from '../store';
 import withRedux from 'next-redux-wrapper';
 
-import Layout, {getInitialProps} from "../components/Layout";
-import StyledTitle from '../components/StyledTitle';
+import Layout, {getInitialProps} from '../components/Layout';
+import TitleBar from '../components/TitleBar';
+import SearchBar from '../components/SearchBar';
 
-const App = ({route}) =>
+const Search = ({route}) =>
     <Layout route={route}>
-        <StyledTitle>{'Search'}</StyledTitle>
+        <TitleBar title={'Search'} />
+        <SearchBar />
     </Layout>;
 
-App.getInitialProps = getInitialProps;
+Search.getInitialProps = getInitialProps;
 
 const mapDispatchToProps = (dispatch) => ({
     route: bindActionCreators(route, dispatch)
 });
 
-export default withRedux(initStore, null, mapDispatchToProps)(App)
+export default withRedux(initStore, null, mapDispatchToProps)(Search)
