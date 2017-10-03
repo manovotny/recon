@@ -72,7 +72,10 @@ class Layout extends React.Component {
 }
 
 Layout.propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.element),
+        PropTypes.element
+    ]).isRequired,
     route: PropTypes.func
 };
 
