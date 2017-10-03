@@ -28,8 +28,9 @@
   "scripts": {
     "build": "next build renderer && next export renderer && build --dir",
     "eslint": "eslint . --ext .json --ext .js",
-    "lint": "npm run eslint",
+    "lint": "npm run stylelint && npm run eslint",
     "start": "electron .",
+    "stylelint": "stylelint \"**/*.js\"",
     "test": "npm run lint"
   },
   "build": {
@@ -68,7 +69,10 @@
     "electron": "1.7.8",
     "electron-builder": "19.31.1",
     "eslint-config-get-off-my-lawn": "2.1.1",
-    "redux-devtools-extension": "2.13.2"
+    "redux-devtools-extension": "2.13.2",
+    "stylelint-config-get-off-my-lawn": "2.0.0",
+    "stylelint-config-styled-components": "0.1.1",
+    "stylelint-processor-styled-components": "1.0.0"
   },
   "optionalDependencies": {
     "fsevents": "*"

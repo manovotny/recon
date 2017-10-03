@@ -19,13 +19,16 @@ export const getInitialProps = ({store, isServer, pathname, res}) => {
 
         // eslint-disable-next-line no-unused-expressions
         injectGlobal`
+            /* stylelint-disable-next-line */
             ${reset}
-
+            
+            /* stylelint-disable selector-max-type */
             html {
                 box-sizing: border-box;
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
                 line-height: 1.25;
             }
+            /* stylelint-enable */
             
             *,
             *::before,
@@ -39,7 +42,7 @@ export const getInitialProps = ({store, isServer, pathname, res}) => {
 };
 
 const StyledMain = styled.main`
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     bottom: 0;
     left: 75px;
     position: absolute;

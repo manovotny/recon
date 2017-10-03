@@ -6,11 +6,11 @@ import {connect} from 'react-redux';
 import {changeTerm} from '../actions';
 
 const StyledSection = styled.section`
-    background-color: #EAEAEA;
+    background-color: #eaeaea;
     padding: 6px;
 
     input {
-        border: 1px solid #CDCDCD;
+        border: 1px solid #cdcdcd;
         border-radius: 2px;
         padding: 4px;
         width: 100%;

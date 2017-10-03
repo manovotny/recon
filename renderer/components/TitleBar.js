@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 const StyledHeader = styled.header`
     -webkit-app-region: drag;
-    background-image: linear-gradient(to bottom, #EEECEE 0%, #D5D3D5 100%);
-    border-bottom: 1px solid #BBBBBB;
-    color: #2D2D2D;
+    background-image: linear-gradient(to bottom, #eeecee 0%, #d5d3d5 100%);
+    border-bottom: 1px solid #bbb;
+    color: #2d2d2d;
     margin: 0;
     padding: 10px 0;
     position: relative;
