@@ -1,6 +1,7 @@
 .coverage
 .idea
 .next
+dist
 node_modules
 npm-debug.log
 renderer/out
