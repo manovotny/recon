@@ -1,45 +1,9 @@
 import Router from 'next/router';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled, {injectGlobal} from 'styled-components';
-import reset from 'styled-reset';
+import styled from 'styled-components';
 
 import Navigation from '../components/Navigation';
-
-export const getInitialProps = ({store, isServer, pathname, res}) => {
-    if (isServer) {
-        const route = store.getState().route;
-
-        if (route !== pathname) {
-            res.writeHead(301, {
-                Location: route
-            });
-            res.end();
-        }
-
-        // eslint-disable-next-line no-unused-expressions
-        injectGlobal`
-            /* stylelint-disable-next-line */
-            ${reset}
-            
-            /* stylelint-disable selector-max-type */
-            html {
-                box-sizing: border-box;
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-                line-height: 1.25;
-            }
-            /* stylelint-enable */
-            
-            *,
-            *::before,
-            *::after {
-                box-sizing: inherit;
-            }
-        `;
-    }
-
-    return store;
-};
 
 const StyledMain = styled.main`
     background-color: #f5f5f5;

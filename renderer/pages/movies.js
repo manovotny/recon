@@ -4,8 +4,9 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 
 import {route} from '../actions';
-import Layout, {getInitialProps} from '../components/Layout';
+import Layout from '../components/Layout';
 import StyledTitle from '../components/StyledTitle';
+import getInitialProps from '../services/get-initial-props';
 import initStore from '../store';
 
 const Movies = (props) =>

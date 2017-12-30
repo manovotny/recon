@@ -25,6 +25,7 @@ const getInitialState = () => {
     return state || defaultState;
 };
 
+// eslint-disable-next-line import/exports-last
 export const saveState = (state) => {
     const path = getStatePath();
 

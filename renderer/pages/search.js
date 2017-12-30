@@ -4,9 +4,10 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 
 import {route} from '../actions';
-import Layout, {getInitialProps} from '../components/Layout';
+import Layout from '../components/Layout';
 import SearchBar from '../components/SearchBar';
 import TitleBar from '../components/TitleBar';
+import getInitialProps from '../services/get-initial-props';
 import initStore from '../store';
 
 const Search = (props) =>

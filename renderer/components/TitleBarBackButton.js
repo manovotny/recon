@@ -7,7 +7,7 @@ const TitleBarBackButton = ({previous, previousTo}) => {
     }
 
     return (
-        <a>{'BACK'}</a>
+        <button type="button">{'BACK'}</button>
     );
 };
 

@@ -16,7 +16,7 @@ export default class StyledComponentsDocument extends Document {
 
     render() {
         return (
-            <html>
+            <html lang="en-US">
                 <Head>
                     {this.props.styleTags}
                 </Head>
