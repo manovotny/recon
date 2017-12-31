@@ -22,7 +22,10 @@ const getInitialState = () => {
     const path = getStatePath();
     const state = fs.readJsonSync(path, {throws: false}); // eslint-disable-line no-sync
 
-    return state || defaultState;
+    return {
+        ...defaultState,
+        ...state
+    };
 };
 
 // eslint-disable-next-line import/exports-last
