@@ -25,9 +25,6 @@ const Navigation = () =>
     <StyledNav className="navigation">
         <Link href="/notifications">{'Notifications'}</Link>
         <Link href="/music">{'Music'}</Link>
-        <Link href="/movies">{'Movies'}</Link>
-        <Link href="/removed">{'Removed'}</Link>
-        <Link href="/search">{'Search'}</Link>
     </StyledNav>;
 
 export default Navigation;

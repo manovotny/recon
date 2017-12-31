@@ -17,7 +17,7 @@ const getStatePath = () => {
 
 const getInitialState = () => {
     const defaultState = {
-        route: '/search'
+        route: '/notifications'
     };
     const path = getStatePath();
     const state = fs.readJsonSync(path, {throws: false}); // eslint-disable-line no-sync
