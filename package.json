@@ -60,6 +60,7 @@
     "react-dom": "15.6.1",
     "react-redux": "5.0.6",
     "redux": "3.7.2",
+    "redux-devtools-extension": "2.13.2",
     "redux-thunk": "2.2.0",
     "styled-components": "2.2.0",
     "styled-reset": "0.1.2"
@@ -71,7 +72,6 @@
     "electron-builder": "19.31.1",
     "eslint": "4.12.0",
     "eslint-config-get-off-my-lawn": "3.0.1",
-    "redux-devtools-extension": "2.13.2",
     "stylelint-config-get-off-my-lawn": "2.0.0",
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-processor-styled-components": "1.0.0"
