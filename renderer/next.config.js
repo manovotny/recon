@@ -6,10 +6,15 @@ module.exports = {
             [page]: {page}
         };
     },
+    /* eslint-disable no-param-reassign */
     webpack: (config) => {
-        // eslint-disable-next-line no-param-reassign
         config.target = 'electron-renderer';
+
+        config.plugins = config.plugins.filter((plugin) =>
+            plugin.constructor.name !== 'UglifyJsPlugin'
+        );
 
         return config;
     }
+    /* eslint-enable */
 };
